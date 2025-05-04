@@ -18,15 +18,12 @@ import ProductCard from "./productCard";
 function FeatureSection (){
 return (
     <div className=" container pt-16">
-         <div className="flex justify-between items-center">
-            <div>
-            <h3>Dessert and Snacks</h3>
-            <p>Buy Fresh Dessert and Snacks</p>
-            </div>
-            <div className="space-x-8 mt-8 lg:mt-0">
-                <button className="text-white bg-orange-400 font-semibold rounded-lg hover:text-accent p-3">Dessert</button>
-                <button className="text-white bg-orange-400 font-semibold rounded-lg hover:text-accent p-3">Snacks</button>
-            </div>
+         <div className="">
+         <div className="text-center mb-6">
+           <h3 className="text-3xl font-bold text-gray-800 mb-2">Dessert and Snacks</h3>
+          <p className="text-lg text-gray-600">Buy Fresh Dessert and Snacks</p>
+       </div>
+
          </div>
          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-10 gap-6">
             <div className="w-full object-cover rounded-lg">
