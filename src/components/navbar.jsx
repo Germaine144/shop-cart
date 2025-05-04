@@ -15,7 +15,7 @@ function Navbar() {
         {/* Navigation Links */}
         <div className="flex gap-6 text-gray-700 font-medium">
           <a href="/" className="hover:text-orange-600 transition">Dessert</a>
-          <a href="/" className="hover:text-orange-600 transition">Fruit</a>
+          <a href="/" className="hover:text-orange-600 transition">Snacks</a>
           <a href="/" className="hover:text-orange-600 transition">Juice</a>
         </div>
         
