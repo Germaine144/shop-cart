@@ -1,34 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { IoIosStarOutline } from "react-icons/io";
 import { IoMdStar } from "react-icons/io";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { IoStarHalfOutline } from "react-icons/io5";
 import { IoStar } from "react-icons/io5";
 
-function ProductCard({ img, name, price, count, paragraphy }) {
-  return (
-    <div className="border border-gray-300 hover:border-gray-400 hover:scale-105 transition-transform duration-200 rounded-md overflow-hidden">
-      <img src={img} alt={name} className="w-full h-48 object-cover" />
+function ProductCard({ img, name, price, paragraphy }) {
+  const { addToCart } = useContext(CartContext);
 
-      <div className="p-4 space-y-2 relative">
-       
-        <div className="text-orange-400 flex gap-1 text-[20px]">
+  const handleAdd = () => {
+    addToCart({ id: name, name, price, img });
+  };
+
+  return (
+    <div className="border rounded-lg p-4 shadow hover:shadow-md transition">
+      <img src={img} alt={name} className="w-full h-40 object-cover rounded-md mb-3" />
+      <div className="text-orange-400 flex gap-1 text-[20px]">
         <IoIosStarOutline />
           <IoStarHalfOutline />
           <IoMdStar />
           <IoStar />
         </div>
-
-        <h3 className="font-semibold text-lg">{name}</h3>
-        <p className="text-sm text-gray-600">{paragraphy}</p>
-        <p className="text-xl font-bold text-orange-500">{price}</p>
-
-        <button className="absolute top-4 right-4 bg-orange-400 text-white text-xl w-10 h-10 rounded-full flex items-center justify-center shadow-md hover:bg-orange-500 transition-colors">
-          <MdOutlineAddShoppingCart />
-        </button>
-      </div>
+      <h3 className="font-bold text-lg">{name}</h3>
+      <p className="text-sm text-gray-600">{paragraphy}</p>
+      <p className="font-semibold text-orange-500">{price}</p>
+      <button 
+        onClick={handleAdd}
+        className="mt-3 bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded transition" >
+         <MdOutlineAddShoppingCart />
+      </button>
     </div>
   );
 }
 
 export default ProductCard;
+

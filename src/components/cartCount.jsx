@@ -1,10 +1,17 @@
-import React from "react";
+
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 function CartCount({ size }) {
+  const { cartItems } = useContext(CartContext);
+  const totalCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
+  if (totalCount === 0) return null;
+
   return (
-    <div className={`absolute bg-orange-600 text-white text-xs ${size} -right-1 -top-1 rounded-full flex items-center justify-center`}>
-      0
-    </div>
+    <span className={`absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full flex items-center justify-center ${size || "w-4 h-4"}`}>
+      {totalCount}
+    </span>
   );
 }
 
