@@ -4,8 +4,7 @@ import { CartContext } from "../context/CartContext";
 function Cart({ setShowCart }) {
   const { cartItems, increaseQty, decreaseQty, confirmOrder, removeFromCart } = useContext(CartContext);
 
-  // 🧮 Calculate the total cart price
-  const total = cartItems.reduce((acc, item) => {
+    const total = cartItems.reduce((acc, item) => {
     const price = Number(item.price.replace("$", ""));
     return acc + price * item.quantity;
   }, 0);
@@ -53,8 +52,7 @@ function Cart({ setShowCart }) {
             </div>
             <button 
               onClick={confirmOrder} 
-              className="mt-4 bg-orange-400 w-full text-white px-4 py-2 rounded"
-            >
+              className="mt-4 bg-orange-400 w-full text-white px-4 py-2 rounded" >
               Confirm Order
             </button>
           </>
@@ -64,4 +62,4 @@ function Cart({ setShowCart }) {
   );
 }
 
-export default Cart;
+export default Cart; 
